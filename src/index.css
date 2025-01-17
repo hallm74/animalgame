@@ -2,25 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Add your global styles here */
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
-
 /* Custom styles */
 .animal-card {
-  @apply flex flex-col items-center bg-white p-4 rounded-lg shadow-lg;
+  @apply flex flex-col items-center bg-white p-4 rounded-lg shadow-lg w-full max-w-3xl mx-auto;
 }
 
 .animal-image {
-  @apply w-full max-w-xs h-auto object-cover rounded-lg mb-4;
+  @apply w-full h-auto object-cover rounded-lg mb-4;
 }
 
 button {
@@ -29,10 +17,4 @@ button {
 
 button:hover {
   @apply bg-blue-700;
-}
-
-@media (max-width: 600px) {
-  .animal-image {
-    max-width: 200px; /* Adjust as needed for mobile */
-  }
 }
