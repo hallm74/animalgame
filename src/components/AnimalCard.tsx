@@ -6,7 +6,7 @@ interface AnimalCardProps {
   sound: string;
   onPlaySound: () => void;
   onRevealName: () => void;
-  onNextAnimal: () => void; // Add this prop
+  onNextAnimal: () => void;
 }
 
 const AnimalCard: React.FC<AnimalCardProps> = ({ image, name, onPlaySound, onRevealName, onNextAnimal }) => {
@@ -15,7 +15,7 @@ const AnimalCard: React.FC<AnimalCardProps> = ({ image, name, onPlaySound, onRev
       <img src={image} alt={name} className="animal-image" />
       <button onClick={onPlaySound}>Play Sound</button>
       <button onClick={onRevealName}>Reveal Name</button>
-      <button onClick={onNextAnimal}>Next</button> {/* Add Next button */}
+      <button onClick={onNextAnimal}>Next</button>
     </div>
   );
 };

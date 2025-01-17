@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import AnimalCard from './components/AnimalCard';
 import Header from './components/Header';
 import Loader from './components/Loader';
+// Remove the TestComponent import
+// import TestComponent from './components/TestComponent';
 import { animals } from './data/animals';
 import { speak } from './utils/speech';
 
@@ -39,9 +41,11 @@ const App: React.FC = () => {
     }, [currentAnimal]);
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-blue-100">
+        <div className="flex flex-col items-center justify-center min-h-screen bg-blue-100 p-4">
             <Header />
-            <h1>Animal Guessing Game</h1>
+            <h1 className="text-3xl font-bold mb-4">Animal Guessing Game</h1>
+            {/* Remove the TestComponent */}
+            {/* <TestComponent /> */}
             {loading ? (
                 <Loader />
             ) : (
@@ -51,7 +55,7 @@ const App: React.FC = () => {
                     sound={currentAnimal.sound}
                     onPlaySound={handlePlaySound}
                     onRevealName={handleRevealName}
-                    onNextAnimal={handleNextAnimal} // Pass the handler to AnimalCard
+                    onNextAnimal={handleNextAnimal}
                 />
             )}
         </div>

@@ -1,16 +1,11 @@
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-    "./public/index.html",
-  ],
+  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {
-      colors: {
-        softBlue: '#A0C4FF',
-        softGreen: '#B9FBC0',
-        softYellow: '#FFE156',
-      },
-    },
+    extend: {},
+  },
+  variants: {
+    extend: {},
   },
   plugins: [],
 };

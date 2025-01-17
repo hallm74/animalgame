@@ -7,7 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/', // Ensure this is set correctly
+    publicPath: '/',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
@@ -21,7 +21,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.(png|jpg|gif|mp3)$/,
@@ -30,7 +30,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[path][name].[ext]',
-              context: 'src', // Ensure this is set correctly
+              context: 'src',
             },
           },
         ],
@@ -53,6 +53,6 @@ module.exports = {
     compress: true,
     port: 3000,
     hot: true,
-    historyApiFallback: true, // Ensure this is set correctly
+    historyApiFallback: true,
   },
 };
