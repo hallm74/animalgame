@@ -6,37 +6,30 @@ import { animals } from './data/animals';
 import { speak } from './utils/speech';
 
 const App: React.FC = () => {
-    const [currentAnimal, setCurrentAnimal] = useState<any>(null);
+    const [currentAnimalIndex, setCurrentAnimalIndex] = useState<number>(0);
     const [loading, setLoading] = useState<boolean>(true);
-
-    const getRandomAnimal = () => {
-        const randomIndex = Math.floor(Math.random() * animals.length);
-        return animals[randomIndex];
-    };
 
     const handleNextAnimal = () => {
         setLoading(true);
-        setCurrentAnimal(getRandomAnimal());
+        setCurrentAnimalIndex((prevIndex) => (prevIndex + 1) % animals.length);
     };
 
     const handlePlaySound = () => {
-        const audio = new Audio(currentAnimal.sound);
+        const audio = new Audio(animals[currentAnimalIndex].sound);
         audio.play();
     };
 
     const handleRevealName = () => {
-        speak(currentAnimal.name);
+        speak(animals[currentAnimalIndex].name);
     };
+
+    useEffect(() => {
+        setLoading(false);
+    }, [currentAnimalIndex]);
 
     useEffect(() => {
         handleNextAnimal();
     }, []);
-
-    useEffect(() => {
-        if (currentAnimal) {
-            setLoading(false);
-        }
-    }, [currentAnimal]);
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-blue-100 p-4">
@@ -45,9 +38,9 @@ const App: React.FC = () => {
                 <Loader />
             ) : (
                 <AnimalCard
-                    image={currentAnimal.image}
-                    name={currentAnimal.name}
-                    sound={currentAnimal.sound}
+                    image={animals[currentAnimalIndex].image}
+                    name={animals[currentAnimalIndex].name}
+                    sound={animals[currentAnimalIndex].sound}
                     onPlaySound={handlePlaySound}
                     onRevealName={handleRevealName}
                     onNextAnimal={handleNextAnimal}
